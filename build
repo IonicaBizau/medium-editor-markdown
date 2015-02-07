@@ -1,0 +1,13 @@
+#!/usr/bin/env node
+
+// Dependencies
+var ToMarkdown = require("to-markdown").toMarkdown
+  , He = require("he")
+  , Fs = require("fs")
+  , Mustache = require("mustache")
+  ;
+
+Fs.writeFileSync("./dist/me-markdown.js", Mustache.render(Fs.readFileSync("./src/medium-editor-md.js", "utf-8"), {
+    he: { decode: He.decode.toString() }
+  , toMarkdown: ToMarkdown.toString()
+}));
