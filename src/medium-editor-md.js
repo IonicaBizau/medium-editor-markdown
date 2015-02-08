@@ -14,8 +14,6 @@
  * @return {undefined}
  */
 module.exports = function (options, callback) {
-    var self = this;
-
     if (typeof options === "function") {
         callback = options;
         options = {};
@@ -27,25 +25,25 @@ module.exports = function (options, callback) {
     callback = callback || options.callback || function () {};
 
     // Called by medium-editor during init
-    this.init = function(mediumEditorInstance) {
-        this.me = mediumEditorInstance;
+    this.init = function(meInstance) {
+        this.me = meInstance;
 
         // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
-        self.element = options.element || (this.me.elements.length > 0 ? this.me.elements[0] : "[data-medium-element=true]");
-        if (typeof self.element === "string") {
-            self.element = document.querySelector(self.element);
+        this.element = options.element || (this.me.elements.length > 0 ? this.me.elements[0] : "[data-medium-element=true]");
+        if (typeof this.element === "string") {
+            this.element = document.querySelector(this.element);
         }
-        self.element = self.element || options.selector;
+        this.element = this.element || options.selector;
 
-        function handler() {
-            callback(toMarkdown(self.element.innerHTML).split("\n").map(function (c) {
+        var handler = function() {
+            callback(toMarkdown(this.element.innerHTML).split("\n").map(function (c) {
                 return c.trim();
             }).join("\n").trim());
-        }
+        }.bind(this);
 
         options.events.forEach(function (c) {
-            self.element.addEventListener(c, handler);
-        });
+            this.element.addEventListener(c, handler);
+        }.bind(this));
 
         handler();
     };
