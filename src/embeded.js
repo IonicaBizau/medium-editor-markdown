@@ -5,9 +5,8 @@
 
     var he = { decode: {{{he.decode}}} }
       , toMarkdown = {{{toMarkdown}}}
-      , MeMarkdown = {{{MeMarkdown}}
+      , MeMarkdown = {{{MeMarkdown}}}
       ;
 
     root.MeMarkdown = MeMarkdown;
-
 })(this);
