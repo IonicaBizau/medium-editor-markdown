@@ -25,7 +25,7 @@ a:hover {
 }
 
 blockquote {
-    margin: 0;
+    margin: 25px;
     border-left: 6px solid #2ecc71;
     padding-left: 9px;
     margin-left: -15px;
