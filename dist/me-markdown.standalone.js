@@ -262,24 +262,23 @@
     this.init = function(meInstance) {
         this.me = meInstance;
 
-        // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
-        this.element = options.element || (this.me.elements.length > 0 ? this.me.elements[0] : "[data-medium-element=true]");
-        if (typeof this.element === "string") {
-            this.element = document.querySelector(this.element);
+        // If this instance of medium-editor doesn't have any elements, there's nothing for us to do
+        if (this.me.elements.length > 0) {
+            // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
+            this.element = this.me.elements[0];
+
+            var handler = function() {
+                callback(toMarkdown(this.element.innerHTML).split("\n").map(function (c) {
+                    return c.trim();
+                }).join("\n").trim());
+            }.bind(this);
+
+            options.events.forEach(function (c) {
+                this.element.addEventListener(c, handler);
+            }.bind(this));
+
+            handler();
         }
-        this.element = this.element || options.selector;
-
-        var handler = function() {
-            callback(toMarkdown(this.element.innerHTML).split("\n").map(function (c) {
-                return c.trim();
-            }).join("\n").trim());
-        }.bind(this);
-
-        options.events.forEach(function (c) {
-            this.element.addEventListener(c, handler);
-        }.bind(this));
-
-        handler();
     };
 }
       ;
