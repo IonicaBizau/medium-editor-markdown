@@ -18,8 +18,10 @@ The `*.no-deps.*` scripts contain only the extension code. You will have to incl
 
 The `*.min.*` scripts are minified.
 
-## Screenshot
-![Medium Editor Markdown](http://i.imgur.com/t1taWY0.jpg)
+## Demo
+[Click here](http://ionicabizau.github.io/medium-editor-markdown) for a live demo.
+
+[![Medium Editor Markdown](http://i.imgur.com/t1taWY0.jpg)](http://ionicabizau.github.io/medium-editor-markdown)
 
 ## Example
 ```html
