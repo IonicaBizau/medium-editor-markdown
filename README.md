@@ -37,6 +37,10 @@ The `*.min.*` scripts are minified.
 </script>
 ```
 
+## Thanks to
+ - [**@daviferreira**](https://github.com/daviferreira/) who created the [Medium Editor library](https://github.com/daviferreira/medium-editor).
+ - [**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown).
+ - [**@mathiasbynens**](https://github.com/mathiasbynens/), the author of [he.js](https://github.com/mathiasbynens/he).
 
 ## Documentation
 ### `MeMarkdown(options, callback)`
