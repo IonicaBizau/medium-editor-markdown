@@ -25,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/IonicaBizau/private-repo/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/private-repo"
+  "homepage": "https://github.com/IonicaBizau/private-repo",
+  "keywords": [
+    "medium",
+    "editor",
+    "markdown"
+  ]
 }
