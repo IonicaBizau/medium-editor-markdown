@@ -46,6 +46,9 @@ The `*.min.*` scripts are minified.
  - [**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown).
  - [**@mathiasbynens**](https://github.com/mathiasbynens/), the author of [he.js](https://github.com/mathiasbynens/he).
 
+## Building
+To rebuild the dist files, run `./build`.
+
 ## Documentation
 ### `MeMarkdown(options, callback)`
 Creates a new instance of `MeMarkdown`.
