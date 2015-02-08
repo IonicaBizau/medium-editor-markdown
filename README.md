@@ -16,8 +16,10 @@ The `*.no-deps.*` scripts contain only the extension code. You will have to incl
 
 The `*.min.*` scripts are minified.
 
-## Example
+## Screenshot
+![Medium Editor Markdown](http://i.imgur.com/t1taWY0.jpg)
 
+## Example
 ```html
 <div class="editor"></div>
 <pre class="markdown"></pre>
