@@ -5,9 +5,23 @@ var ToMarkdown = require("to-markdown").toMarkdown
   , He = require("he")
   , Fs = require("fs")
   , Mustache = require("mustache")
+  , MeMarkdown = require("./src/medium-editor-md")
+  , UglifyJS = require("uglify-js")
   ;
 
-Fs.writeFileSync("./dist/me-markdown.js", Mustache.render(Fs.readFileSync("./src/medium-editor-md.js", "utf-8"), {
-    he: { decode: He.decode.toString() }
-  , toMarkdown: ToMarkdown.toString()
-}));
+// Constants
+const TEMPLATE_EMBEDED = Fs.readFileSync("./src/embeded.js", "utf-8")
+    , TEMPLATE_NO_DEPS = Fs.readFileSync("./src/me-markdown.js", "utf-8")
+    , MUSTACHE_DATA = {
+        he: { decode: He.decode.toString() }
+      , toMarkdown: ToMarkdown.toString()
+      , MeMarkdown: MeMarkdown.toString()
+      }
+    ;
+
+// Create the dist files
+var lastStr = "";
+Fs.writeFileSync("./dist/me-markdown.standalone.js",  lastStr = Mustache.render(TEMPLATE_EMBEDED, MUSTACHE_DATA));
+Fs.writeFileSync("./dist/me-markdown.standalone.min.js", UglifyJS.minify(lastStr, { fromString: true }).code);
+Fs.writeFileSync("./dist/me-markdown.no-deps.js", lastStr = Mustache.render(TEMPLATE_NO_DEPS, MUSTACHE_DATA));
+Fs.writeFileSync("./dist/me-markdown.no-deps.min.js", UglifyJS.minify(lastStr, { fromString: true }).code);
