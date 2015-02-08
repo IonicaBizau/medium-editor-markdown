@@ -4,34 +4,40 @@
     }
 
     var MeMarkdown = function (options, callback) {
-    var self = this;
+
     if (typeof options === "function") {
         callback = options;
         options = {};
     }
+
+    // Defaults
     options = Object(options);
     options.events = options.events || ["input", "change"];
     callback = callback || options.callback || function () {};
 
-    setTimeout(function() {
-        self.element = options.element || "[data-medium-element=true]";
-        if (typeof self.element === "string") {
-            self.element = document.querySelector(self.element);
-        }
-        self.element = self.element || options.selector;
+    // Called by medium-editor during init
+    this.init = function (meInstance) {
 
-        function handler() {
-            callback(toMarkdown(self.element.innerHTML).split("\n").map(function (c) {
+        this.me = meInstance;
+
+        // If this instance of medium-editor doesn't have any elements, there's nothing for us to do
+        if (!this.me.elements || !this.me.elements.length) { return; }
+
+        // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
+        this.element = this.me.elements[0];
+
+        var handler = function () {
+            callback(toMarkdown(this.element.innerHTML).split("\n").map(function (c) {
                 return c.trim();
             }).join("\n").trim());
-        }
+        }.bind(this);
 
         options.events.forEach(function (c) {
-            self.element.addEventListener(c, handler);
-        });
+            this.element.addEventListener(c, handler);
+        }.bind(this));
 
         handler();
-    }, 0);
+    };
 };
     root.MeMarkdown = MeMarkdown;
 })(this);
