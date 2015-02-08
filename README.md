@@ -59,7 +59,6 @@ Creates a new instance of `MeMarkdown`.
 - **Object** `options`: An object containing the following fields:
  - `events` (Array): An array with the events when the markdown code will be generated (default: `["input", "change"]`).
  - `callback` (Function): The callback function. If the second argument is a function, then it has greater priority.
- - `selector` (String|HTMLElement): The Medium Editor element or selector (default: `[data-medium-element=true]`).
 
 - **Function** `callback`: The callback function that is called with the markdown code (first argument).
 
