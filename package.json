@@ -20,12 +20,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/IonicaBizau/private-repo.git"
+    "url": "https://github.com/IonicaBizau/medium-editor-markdown.git"
   },
   "bugs": {
-    "url": "https://github.com/IonicaBizau/private-repo/issues"
+    "url": "https://github.com/IonicaBizau/medium-editor-markdown/issues"
   },
-  "homepage": "https://github.com/IonicaBizau/private-repo",
+  "homepage": "https://github.com/IonicaBizau/medium-editor-markdown",
   "keywords": [
     "medium",
     "editor",
