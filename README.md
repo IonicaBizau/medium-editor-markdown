@@ -1,3 +1,5 @@
+![Medium Editor Markdown](http://i.imgur.com/NMMksBR.png)
+
 # Medium Editor Markdown
 A [Medium Editor](https://github.com/daviferreira/medium-editor) extension to add markdown support.
 
