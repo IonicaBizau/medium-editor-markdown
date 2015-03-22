@@ -53,7 +53,8 @@
     };
 
     // Embed the libraries
-    var he = { decode: {{{he.decode}}} }
+    var decode = {{{he.decode}}}
+      , he = { decode: decode }
       , toMarkdown = {{{toMarkdown}}}
       , MeMarkdown = {{{MeMarkdown}}}
       ;
