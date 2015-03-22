@@ -53,7 +53,7 @@
     };
 
     // Embed the libraries
-    var he = { decode: function (html, options) {
+    var decode = function (html, options) {
 		options = merge(options, decode.options);
 		var strict = options.strict;
 		if (strict && regexInvalidEntity.test(html)) {
@@ -121,7 +121,8 @@
 				return decodeMapLegacy[reference] + (next || '');
 			}
 		});
-	} }
+	}
+      , he = { decode: decode }
       , toMarkdown = function (string) {
 
   var ELEMENTS = [
