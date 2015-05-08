@@ -3,10 +3,9 @@
         throw new Error("Medium Editor is not loaded on the page.");
     }
 
-    var he = { decode: {{{he.decode}}} }
-      , toMarkdown = {{{toMarkdown}}}
-      , MeMarkdown = {{{MeMarkdown}}}
-      ;
+    {{{toMarkdown}}}
+
+    var MeMarkdown = {{{MeMarkdown}}};
 
     root.MeMarkdown = MeMarkdown;
 })(this);
