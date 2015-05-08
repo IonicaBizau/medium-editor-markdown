@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 // Dependencies
-var ToMarkdown = require("to-markdown").toMarkdown
-  , He = require("he")
-  , Fs = require("fs")
+var Fs = require("fs")
   , Mustache = require("mustache")
   , MeMarkdown = require("./src/medium-editor-md")
   , UglifyJS = require("uglify-js")
@@ -12,9 +10,9 @@ var ToMarkdown = require("to-markdown").toMarkdown
 // Constants
 const TEMPLATE_EMBEDED = Fs.readFileSync("./src/embeded.js", "utf-8")
     , TEMPLATE_NO_DEPS = Fs.readFileSync("./src/me-markdown.js", "utf-8")
+    , TO_MARKDOWN = Fs.readFileSync("./node_modules/to-markdown/dist/to-markdown.js", "utf-8")
     , MUSTACHE_DATA = {
-        he: { decode: He.decode.toString() }
-      , toMarkdown: ToMarkdown.toString()
+        toMarkdown: TO_MARKDOWN
       , MeMarkdown: MeMarkdown.toString()
       }
     ;
