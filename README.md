@@ -14,7 +14,7 @@ The available scripts are:
 
 The `*.standalone.*` scripts contain all the dependencies included there.
 
-The `*.no-deps.*` scripts contain only the extension code. You will have to include manually [`he.js`](https://github.com/mathiasbynens/he) and [`to-markdown.js`](https://github.com/domchristie/to-markdown) on the page, before including the markdown extension.
+The `*.no-deps.*` scripts contain only the extension code. You will have to include manually [`to-markdown.js`](https://github.com/domchristie/to-markdown) on the page, before including the markdown extension.
 
 The `*.min.*` scripts are minified.
 
@@ -46,7 +46,6 @@ The `*.min.*` scripts are minified.
 ## Thanks to
  - [**@daviferreira**](https://github.com/daviferreira/) who created the [Medium Editor library](https://github.com/daviferreira/medium-editor).
  - [**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown).
- - [**@mathiasbynens**](https://github.com/mathiasbynens/), the author of [he.js](https://github.com/mathiasbynens/he).
 
 ## Building
 To rebuild the dist files, run `./build`.
