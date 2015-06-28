@@ -2,7 +2,7 @@
 
 // Dependencies
 var Fs = require("fs")
-  , Barbe = require("mustache")
+  , Barbe = require("barbe")
   , MeMarkdown = require("./src/medium-editor-md")
   , UglifyJS = require("uglify-js")
   ;
