@@ -13,7 +13,7 @@
   "contributors": [
     "Nate Mielnik <nathan@outlook.com>"
   ],
-  "license": "MIT",
+  "license": "KINDLY",
   "dependencies": {
     "barbe": "^2.0.0",
     "to-markdown": "1.2.0",
