@@ -32,5 +32,8 @@
     "medium",
     "editor",
     "markdown"
-  ]
+  ],
+  "blah": {
+      "h_img": "http://i.imgur.com/xb6JPkv.png"
+  }
 }

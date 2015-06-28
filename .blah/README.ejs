@@ -13,11 +13,37 @@
 <!-- * * * Thanks! * * *                                                    -->
 <!---------------------------------------------------------------------------->
 
-[![Medium Editor Markdown](http://i.imgur.com/xb6JPkv.png)](http://ionicabizau.github.io/medium-editor-markdown/)
 
-# Medium Editor Markdown [![Donate now][donate-now]][paypal-donations]
+<% // Dependencies %>
+<% var IsThere = require("is-there"); %>
+<% var Fs = require("fs"); %>
+<% var Path = require("path"); %>
+<% var Ul = require("ul"); %>
 
-A [Medium Editor](https://github.com/daviferreira/medium-editor) extension to add markdown support.
+<% // Compute the directory paths %>
+<% var binPath = Path.join(_.path, "bin"); %>
+<% var examplesPath = Path.join(_.path, "examples"); %>
+<% var examplePath = Path.join(_.path, "example"); %>
+<% var example = IsThere(examplePath) ? examplePath : IsThere(examplesPath) ? examplesPath : null; %>
+<% var isCli = IsThere(binPath); %>
+
+<% _.pack.name = "Medium Editor Markdown" %>
+<% _.pack.description = "A [Medium Editor](https://github.com/daviferreira/medium-editor) extension to add markdown support." %>
+<% if (_.pack.blah.h_img) { %>
+[![<%- _.pack.name %>](<%- _.pack.blah.h_img %>)](http://ionicabizau.github.io/medium-editor-markdown/)
+<% } %>
+
+<% // Create the name and description %>
+<% if (isCli) { %>
+# `$ <%- _.pack.name %>` [![Donate now][donate-now]][paypal-donations]
+<% } else { %>
+# <%- _.pack.name %> [![Donate now][donate-now]][paypal-donations]
+<% } %>
+<%- _.pack.description %>
+
+<% if (_.pack.blah.ex_img) { %>
+![<%- _.pack.name %>](<%-_.pack.blah.ex_img %>)
+<% } %>
 
 ## Usage
 
@@ -66,27 +92,26 @@ The `*.min.*` scripts are minified.
 ## Building
 To rebuild the dist files, run `./build`.
 
+<% // Documentation %>
 ## Documentation
 
-### `MeMarkdown(options, callback)`
-Creates a new instance of `MeMarkdown`.
+<% if (isCli) { %>
+For full API reference, see the [DOCUMENTATION.md][docs] file.
+<% } else { %>
+<% docs = docs.split("\n").slice(3).join("\n"); %>
+<%- docs %>
+<% } %>
 
-#### Params
-- **Object** `options`: An object containing the following fields:
- - `events` (Array): An array with the events when the markdown code will be generated (default: `["input", "change"]`).
- - `callback` (Function): The callback function. If the second argument is a function, then it has greater priority.
-- **Function** `callback`: The callback function that is called with the markdown code (first argument).
-
-#### Return
-- ****
-
+<% // How to contribute %>
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
+<% // License information %>
 ## License
 [KINDLY][license] © [Ionică Bizău][website]–The [LICENSE](/LICENSE) file contains
 a copy of the license.
 
+<% // Links %>
 [license]: http://ionicabizau.github.io/kindly-license/?author=Ionic%C4%83%20Biz%C4%83u%20%3Cbizauionica@gmail.com%3E&year=2015
 [contributing]: /CONTRIBUTING.md
 [website]: http://ionicabizau.net
