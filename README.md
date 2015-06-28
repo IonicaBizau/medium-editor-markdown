@@ -35,7 +35,7 @@ The `*.min.*` scripts are minified.
         new MediumEditor(document.querySelector(".editor"), {
             extensions: {
                 markdown: new MeMarkdown(function (md) {
-                    markDownEl.innerHTML = md;
+                    markDownEl.textContent = md;
                 })
             }
         });
