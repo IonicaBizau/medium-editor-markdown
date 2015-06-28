@@ -2,7 +2,7 @@
 
 // Dependencies
 var Fs = require("fs")
-  , Mustache = require("mustache")
+  , Barbe = require("mustache")
   , MeMarkdown = require("./src/medium-editor-md")
   , UglifyJS = require("uglify-js")
   ;
@@ -19,7 +19,7 @@ const TEMPLATE_EMBEDED = Fs.readFileSync("./src/embeded.js", "utf-8")
 
 // Create the dist files
 var lastStr = "";
-Fs.writeFileSync("./dist/me-markdown.standalone.js",  lastStr = Mustache.render(TEMPLATE_EMBEDED, MUSTACHE_DATA));
+Fs.writeFileSync("./dist/me-markdown.standalone.js",  lastStr = Barbe(TEMPLATE_EMBEDED, ["{{{", "}}}"], MUSTACHE_DATA));
 Fs.writeFileSync("./dist/me-markdown.standalone.min.js", UglifyJS.minify(lastStr, { fromString: true }).code);
-Fs.writeFileSync("./dist/me-markdown.no-deps.js", lastStr = Mustache.render(TEMPLATE_NO_DEPS, MUSTACHE_DATA));
+Fs.writeFileSync("./dist/me-markdown.no-deps.js", lastStr = Barbe(TEMPLATE_NO_DEPS, ["{{{", "}}}"], MUSTACHE_DATA));
 Fs.writeFileSync("./dist/me-markdown.no-deps.min.js", UglifyJS.minify(lastStr, { fromString: true }).code);
