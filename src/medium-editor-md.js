@@ -25,9 +25,9 @@ module.exports = function (options, callback) {
     callback = callback || options.callback || function () {};
 
     // Called by medium-editor during init
-    this.init = function (meInstance) {
+    this.init = function () {
 
-        this.me = meInstance;
+        this.me = this.base;
 
         // If this instance of medium-editor doesn't have any elements, there's nothing for us to do
         if (!this.me.elements || !this.me.elements.length) { return; }
