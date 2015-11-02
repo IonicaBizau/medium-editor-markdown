@@ -730,15 +730,13 @@ module.exports = whitespace
     callback = callback || options.callback || function () {};
 
     // Called by medium-editor during init
-    this.init = function (meInstance) {
-
-        this.me = meInstance;
+    this.init = function () {
 
         // If this instance of medium-editor doesn't have any elements, there's nothing for us to do
-        if (!this.me.elements || !this.me.elements.length) { return; }
+        if (!this.base.elements || !this.base.elements.length) { return; }
 
         // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
-        this.element = this.me.elements[0];
+        this.element = this.base.elements[0];
 
         var handler = function () {
             callback(toMarkdown(this.element.innerHTML).split("\n").map(function (c) {
