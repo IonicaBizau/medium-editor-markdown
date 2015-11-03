@@ -16,8 +16,8 @@
   "license": "KINDLY",
   "dependencies": {
     "barbe": "^2.0.0",
-    "to-markdown": "1.2.0",
-    "uglify-js": "2.4.16"
+    "to-markdown": "^2.0.1",
+    "uglify-js": "^2.5.0"
   },
   "devDependencies": {},
   "repository": {
