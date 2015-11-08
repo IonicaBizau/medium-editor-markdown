@@ -35,6 +35,79 @@
     "markdown"
   ],
   "blah": {
-    "h_img": "http://i.imgur.com/xb6JPkv.png"
+    "h_img": "http://i.imgur.com/xb6JPkv.png",
+    "title": "Medium Editor Markdown",
+    "description": "[Click here](https://github.com/daviferreira/medium-editor) to see the Medium Editor project.",
+    "show_installation": false,
+    "installation": [
+      {
+        "h2": "Usage"
+      },
+      {
+        "p": "The available scripts are:"
+      },
+      {
+        "ul": [
+          "me-markdown.no-deps.js",
+          "me-markdown.no-deps.min.js",
+          "me-markdown.standalone.js",
+          "me-markdown.standalone.min.js"
+        ]
+      },
+      {
+        "p": [
+          "The `*.standalone.*` scripts contain all the dependencies included there.",
+          "The `*.no-deps.*` scripts contain only the extension code. You will have to include manually [`to-markdown.js`](https://github.com/domchristie/to-markdown) on the page, before including the markdown extension.",
+          "The `*.min.*` scripts are minified."
+        ]
+      },
+      {
+        "h2": "Demo"
+      },
+      {
+        "p": [
+          "[Click here](http://ionicabizau.github.io/medium-editor-markdown) for a live demo.",
+          "[![Medium Editor Markdown](http://i.imgur.com/t1taWY0.jpg)](http://ionicabizau.github.io/medium-editor-markdown)"
+        ]
+      },
+      {
+        "h2": "Example"
+      },
+      {
+        "code": {
+          "language": "html",
+          "content": [
+            "<div class=\"editor\"></div>",
+            "<pre class=\"markdown\"></pre>",
+            "<script src=\"path/to/medium-editor.js\"></script>",
+            "<script src=\"path/to/me-markdown.standalone.min.js\"></script>",
+            "<script>",
+            "    (function () {",
+            "        var markDownEl = document.querySelector(\".markdown\");",
+            "        new MediumEditor(document.querySelector(\".editor\"), {",
+            "            extensions: {",
+            "                markdown: new MeMarkdown(function (md) {",
+            "                    markDownEl.textContent = md;",
+            "                })",
+            "            }",
+            "        });",
+            "    })();",
+            "</script>"
+          ]
+        }
+      },
+      {
+        "h2": "Building"
+      },
+      {
+        "p": "To rebuild the dist files, run `./build`."
+      }
+    ],
+    "thanks": {
+      "ul": [
+        "[**@daviferreira**](https://github.com/daviferreira/) who created the [Medium Editor library](https://github.com/daviferreira/medium-editor).",
+        "[**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown)."
+      ]
+    }
   }
 }
