@@ -60,9 +60,6 @@ Creates a new instance of `MeMarkdown`.
  - `callback` (Function): The callback function. If the second argument is a function, then it has greater priority.
 - **Function** `callback`: The callback function that is called with the markdown code (first argument).
 
-#### Return
-- ****
-
 ## How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
