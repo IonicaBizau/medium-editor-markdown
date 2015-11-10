@@ -1,6 +1,7 @@
 [![medium-editor-markdown](http://i.imgur.com/xb6JPkv.png)](#)
 
 # Medium Editor Markdown [![Support this project][donate-now]][paypal-donations]
+
 A Medium Editor extension to add markdown support.
 
 [Click here](https://github.com/daviferreira/medium-editor) to see the Medium Editor project.
