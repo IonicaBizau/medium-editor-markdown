@@ -10,7 +10,6 @@
  *  - `callback` (Function): The callback function. If the second argument is a function, then it has greater priority.
  *
  * @param {Function} callback The callback function that is called with the markdown code (first argument).
- * @return {undefined}
  */
 module.exports = function (options, callback) {
 
