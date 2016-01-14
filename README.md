@@ -1,8 +1,8 @@
 [![medium-editor-markdown](http://i.imgur.com/xb6JPkv.png)](#)
 
-# Medium Editor Markdown [![Support this project][donate-now]][paypal-donations]
+# Medium Editor Markdown [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/medium-editor-markdown.svg)](https://www.npmjs.com/package/medium-editor-markdown) [![Downloads](https://img.shields.io/npm/dt/medium-editor-markdown.svg)](https://www.npmjs.com/package/medium-editor-markdown) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
 
-A Medium Editor extension to add markdown support.
+> A Medium Editor extension to add markdown support.
 
 [Click here](https://github.com/daviferreira/medium-editor) to see the Medium Editor project.
 
