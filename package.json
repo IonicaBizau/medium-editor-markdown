@@ -12,7 +12,8 @@
   "author": "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
   "contributors": [
     "Nate Mielnik <nathan@outlook.com>",
-    "@prevuelta (http://www.pablorevuelta.com/)"
+    "@prevuelta (http://www.pablorevuelta.com/)",
+    "okmttdhr (http://okmttdhr.github.io/)"
   ],
   "license": "MIT",
   "dependencies": {
