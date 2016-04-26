@@ -1,3 +1,4 @@
+
 [![medium-editor-markdown](http://i.imgur.com/xb6JPkv.png)](#)
 
 # Medium Editor Markdown [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)][paypal-donations] [![Version](https://img.shields.io/npm/v/medium-editor-markdown.svg)](https://www.npmjs.com/package/medium-editor-markdown) [![Downloads](https://img.shields.io/npm/dt/medium-editor-markdown.svg)](https://www.npmjs.com/package/medium-editor-markdown) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/johnnyb?utm_source=github&utm_medium=button&utm_term=johnnyb&utm_campaign=github)
@@ -10,10 +11,12 @@
 
 The available scripts are:
 
+
  - me-markdown.no-deps.js
  - me-markdown.no-deps.min.js
  - me-markdown.standalone.js
  - me-markdown.standalone.min.js
+
 
 The `*.standalone.*` scripts contain all the dependencies included there.
 
@@ -50,7 +53,9 @@ The `*.min.*` scripts are minified.
 
 To rebuild the dist files, run `./build`.
 
-## Documentation
+
+## :memo: Documentation
+
 
 ### `MeMarkdown(options, callback)`
 Creates a new instance of `MeMarkdown`.
@@ -61,18 +66,19 @@ Creates a new instance of `MeMarkdown`.
  - `callback` (Function): The callback function. If the second argument is a function, then it has greater priority.
 - **Function** `callback`: The callback function that is called with the markdown code (first argument).
 
-## How to contribute
+
+
+## :yum: How to contribute
 Have an idea? Found a bug? See [how to contribute][contributing].
 
-## Thanks
+## :cake: Thanks
 
  - [**@daviferreira**](https://github.com/daviferreira/) who created the [Medium Editor library](https://github.com/daviferreira/medium-editor).
  - [**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown).
 
-## Where is this library used?
-If you are using this library in one of your projects, add it in this list. :sparkles:
 
-## License
+
+## :scroll: License
 
 [MIT][license] © [Ionică Bizău][website]
 
