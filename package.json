@@ -1,6 +1,6 @@
 {
   "name": "medium-editor-markdown",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "A Medium Editor extension to add markdown support.",
   "main": "src/medium-editor-md.js",
   "directories": {
@@ -110,5 +110,16 @@
         "[**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown)."
       ]
     }
-  }
+  },
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js"
+  ]
 }
