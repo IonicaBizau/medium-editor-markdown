@@ -1,0 +1,30 @@
+{
+  "name": "medium-editor-markdown",
+  "description": "A Medium Editor extension to add markdown support.",
+  "main": "src/medium-editor-md.js",
+  "authors": [
+    "Nate Mielnik <nathan@outlook.com>",
+    "@prevuelta (http://www.pablorevuelta.com/)",
+    "okmttdhr (http://okmttdhr.github.io/)",
+    "Mattias Cibien (http://github.com/mattiascibien)"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "medium",
+    "editor",
+    "markdown"
+  ],
+  "homepage": "https://github.com/IonicaBizau/medium-editor-markdown",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "medium-editor": "^5.0.0",
+    "to-markdown": "^2.0.1",
+    "uglify-js": "^2.5.0"
+  }
+}
