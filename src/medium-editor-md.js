@@ -36,7 +36,7 @@ module.exports = function (options, callback) {
         this.element = this.base.elements[0];
 
         var handler = function () {
-            callback(toMarkdown(this.element.innerHTML).split("\n").map(function (c) {
+            callback(toMarkdown(this.element.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
                 return c.trim();
             }).join("\n").trim());
         }.bind(this);
