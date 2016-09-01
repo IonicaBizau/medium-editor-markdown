@@ -18,11 +18,12 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "barbe": "^2.0.0",
-    "to-markdown": "^2.0.1",
-    "uglify-js": "^2.5.0"
+    "to-markdown": "^2.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+     "barbe": "^2.0.0",
+     "uglify-js": "^2.5.0"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/IonicaBizau/medium-editor-markdown.git"

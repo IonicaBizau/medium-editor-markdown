@@ -22,9 +22,11 @@
     "test",
     "tests"
   ],
+  "devDependencies": {
+    "UglifyJS2": "mishoo/UglifyJS2#^2.5.0"    
+  },
   "dependencies": {
     "medium-editor": "^5.0.0",
-    "to-markdown": "^2.0.1",
-    "UglifyJS2": "https://github.com/mishoo/UglifyJS2.git#^2.5.0"
+    "to-markdown": "^2.0.1"
   }
 }
