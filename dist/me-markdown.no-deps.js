@@ -1,45 +1,62 @@
-"use strict";
-
 (function (root) {
     if (typeof MediumEditor !== "function") {
         throw new Error("Medium Editor is not loaded on the page.");
     }
 
-    var MeMarkdown = function MeMarkdown(options, callback) {
+    var MeMarkdown = function (options, callback) {
 
-        if (typeof options === "function") {
-            callback = options;
-            options = {};
+    if (typeof options === "function") {
+        callback = options;
+        options = {};
+    }
+
+    // Defaults
+    options = Object(options);
+    options.events = options.events || ["input", "change"];
+    callback = callback || options.callback || function () {};
+
+    function normalizeList ($elm) {
+        var $children = $elm.children;
+        for (var i = 0; i < $children.length; ++i) {
+            var $cChild = $children[i];
+            var $prevChild = $children[i - 1];
+            if (/^UL|OL$/.test($cChild.tagName)) {
+                try {
+                $prevChild.appendChild($cChild);
+                } catch (e) { console.warn(e); }
+                normalizeList($cChild);
+            }
+        }
+    }
+
+    // Called by medium-editor during init
+    this.init = function () {
+
+        // If this instance of medium-editor doesn't have any elements, there's nothing for us to do
+        if (!this.base.elements || !this.base.elements.length) {
+            return;
         }
 
-        // Defaults
-        options = Object(options);
-        options.events = options.events || ["input", "change"];
-        callback = callback || options.callback || function () {};
+        // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
+        this.element = this.base.elements[0];
 
-        // Called by medium-editor during init
-        this.init = function () {
-
-            // If this instance of medium-editor doesn't have any elements, there's nothing for us to do
-            if (!this.base.elements || !this.base.elements.length) {
-                return;
+        var handler = function () {
+            var $clone = this.element.cloneNode(true);
+            var $lists = $clone.querySelectorAll("ul, ol");
+            for (var i = 0; i < $lists.length; ++i) {
+                normalizeList($lists[i]);
             }
+            callback(toMarkdown($clone.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
+                return c.trimRight();
+            }).join("\n").trimRight());
+        }.bind(this);
 
-            // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
-            this.element = this.base.elements[0];
+        options.events.forEach(function (c) {
+            this.element.addEventListener(c, handler);
+        }.bind(this));
 
-            var handler = function () {
-                callback(toMarkdown(this.element.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
-                    return c.trim();
-                }).join("\n").trim());
-            }.bind(this);
-
-            options.events.forEach(function (c) {
-                this.element.addEventListener(c, handler);
-            }.bind(this));
-
-            handler();
-        };
+        handler();
     };
+};
     root.MeMarkdown = MeMarkdown;
-})(undefined);
+})(this);

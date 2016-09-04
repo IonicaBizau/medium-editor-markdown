@@ -29,6 +29,20 @@ module.exports = function (options, callback) {
     options.events = options.events || ["input", "change"];
     callback = callback || options.callback || function () {};
 
+    function normalizeList ($elm) {
+        var $children = $elm.children;
+        for (var i = 0; i < $children.length; ++i) {
+            var $cChild = $children[i];
+            var $prevChild = $children[i - 1];
+            if (/^UL|OL$/.test($cChild.tagName)) {
+                try {
+                $prevChild.appendChild($cChild);
+                } catch (e) { console.warn(e); }
+                normalizeList($cChild);
+            }
+        }
+    }
+
     // Called by medium-editor during init
     this.init = function () {
 
@@ -41,9 +55,14 @@ module.exports = function (options, callback) {
         this.element = this.base.elements[0];
 
         var handler = function () {
-            callback(toMarkdown(this.element.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
-                return c.trim();
-            }).join("\n").trim());
+            var $clone = this.element.cloneNode(true);
+            var $lists = $clone.querySelectorAll("ul, ol");
+            for (var i = 0; i < $lists.length; ++i) {
+                normalizeList($lists[i]);
+            }
+            callback(toMarkdown($clone.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
+                return c.trimRight();
+            }).join("\n").trimRight());
         }.bind(this);
 
         options.events.forEach(function (c) {
