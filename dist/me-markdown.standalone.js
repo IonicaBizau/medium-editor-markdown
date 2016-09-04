@@ -801,14 +801,32 @@ module.exports = {
     options.events = options.events || ["input", "change"];
     callback = callback || options.callback || function () {};
 
+    var toMarkdownOptions = options.toMarkdownOptions = Object(options.toMarkdownOptions);
+    toMarkdownOptions.converters = toMarkdownOptions.converters || [];
+
+    if (!options.ignoreBuiltInConverters) {
+        toMarkdownOptions.converters.push({
+            filter: function (node) {
+                return node.nodeName === "DIV" && !node.attributes.length;
+            }
+          , replacement: function (content) {
+                return content;
+            }
+        });
+    }
+
+
     function normalizeList ($elm) {
         var $children = $elm.children;
         for (var i = 0; i < $children.length; ++i) {
             var $cChild = $children[i];
+            var $br = $cChild.querySelector("br");
+            $br && $br.remove();
+            !$cChild.innerHTML.trim() && $cChild.remove();
             var $prevChild = $children[i - 1];
             if (/^UL|OL$/.test($cChild.tagName)) {
                 try {
-                $prevChild.appendChild($cChild);
+                    $prevChild.appendChild($cChild);
                 } catch (e) { console.warn(e); }
                 normalizeList($cChild);
             }
@@ -832,6 +850,7 @@ module.exports = {
             for (var i = 0; i < $lists.length; ++i) {
                 normalizeList($lists[i]);
             }
+
             callback(toMarkdown($clone.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
                 return c.trimRight();
             }).join("\n").trimRight());
