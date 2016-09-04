@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * MeMarkdown
  * Creates a new instance of `MeMarkdown`.
@@ -31,7 +33,9 @@ module.exports = function (options, callback) {
     this.init = function () {
 
         // If this instance of medium-editor doesn't have any elements, there's nothing for us to do
-        if (!this.base.elements || !this.base.elements.length) { return; }
+        if (!this.base.elements || !this.base.elements.length) {
+            return;
+        }
 
         // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
         this.element = this.base.elements[0];
