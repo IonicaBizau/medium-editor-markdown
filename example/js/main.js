@@ -1,7 +1,9 @@
 window.addEventListener("load", function () {
     var markDownEl = document.querySelector(".editor > .right > pre");
-    new MediumEditor(document.querySelector(".editor > .left"), {
-        buttons: ["bold", "italic", "underline", "orderedlist", "unorderedlist", "anchor", "header1", "header2", "quote"]
+    new MediumEditor(".editor > .left", {
+        toolbar: {
+            buttons: ['bold', 'italic', 'underline', 'anchor', 'h2', 'h3', "unorderedlist"]
+        }
       , extensions: {
             markdown: new MeMarkdown(function (md) {
                 markDownEl.textContent = md;
