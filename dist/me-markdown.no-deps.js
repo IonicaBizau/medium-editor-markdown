@@ -29,7 +29,6 @@
         });
     }
 
-
     function normalizeList ($elm) {
         var $children = $elm.children;
         for (var i = 0; i < $children.length; ++i) {
