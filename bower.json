@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "medium-editor": "^5.0.0",
-    "to-markdown": "^2.0.1"
+    "to-markdown": "^3.0.3"
   }
 }

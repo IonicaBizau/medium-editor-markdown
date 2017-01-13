@@ -18,7 +18,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "to-markdown": "^3.0.1"
+    "to-markdown": "^3.0.3"
   },
   "devDependencies": {
     "barbe": "^3.0.6",
