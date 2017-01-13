@@ -135,13 +135,13 @@ function isFlankedByWhitespace (side, node) {
   return isFlanked
 }
 
-function flankingWhitespace (node) {
+function flankingWhitespace (node, content) {
   var leading = ''
   var trailing = ''
 
   if (!isBlock(node)) {
-    var hasLeading = /^[ \r\n\t]/.test(node.innerHTML)
-    var hasTrailing = /[ \r\n\t]$/.test(node.innerHTML)
+    var hasLeading = /^[ \r\n\t]/.test(content)
+    var hasTrailing = /[ \r\n\t]$/.test(content)
 
     if (hasLeading && !isFlankedByWhitespace('left', node)) {
       leading = ' '
@@ -179,7 +179,7 @@ function process (node) {
         )
       }
 
-      var whitespace = flankingWhitespace(node)
+      var whitespace = flankingWhitespace(node, content)
 
       if (whitespace.leading || whitespace.trailing) {
         content = content.trim()
@@ -199,6 +199,10 @@ toMarkdown = function (input, options) {
 
   if (typeof input !== 'string') {
     throw new TypeError(input + ' is not a string')
+  }
+
+  if (input === '') {
+    return ''
   }
 
   // Escape potential ol triggers
@@ -843,6 +847,9 @@ module.exports = {
         // Element(s) that this instance of medium-editor is attached to is/are stored in .elements
         this.element = this.base.elements[0];
 
+        // String.prototype.trimRight is non-standard, this should have the same effect
+        var rightWhitespace = /[\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF]*$/;
+
         var handler = function () {
             var $clone = this.element.cloneNode(true);
             var $lists = $clone.querySelectorAll("ul, ol");
@@ -851,8 +858,8 @@ module.exports = {
             }
 
             callback(toMarkdown($clone.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
-                return c.trimRight();
-            }).join("\n").trimRight());
+                return c.replace(rightWhitespace, '');
+            }).join("\n").replace(rightWhitespace, ''));
         }.bind(this);
 
         options.events.forEach(function (c) {
