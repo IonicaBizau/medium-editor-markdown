@@ -19,6 +19,7 @@ The available scripts are:
  - me-markdown.standalone.js
  - me-markdown.standalone.min.js
 
+
 The `*.standalone.*` scripts contain all the dependencies included there.
 
 The `*.no-deps.*` scripts contain only the extension code. You will have to include manually [`to-markdown.js`](https://github.com/domchristie/to-markdown) on the page, before including the markdown extension.
@@ -80,6 +81,7 @@ Thanks! :heart:
 
  - [**@daviferreira**](https://github.com/daviferreira/) who created the [Medium Editor library](https://github.com/daviferreira/medium-editor).
  - [**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown).
+
 
 
 ## :scroll: License
