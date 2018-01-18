@@ -15,11 +15,11 @@
     options.events = options.events || ["input", "change"];
     callback = callback || options.callback || function () {};
 
-    var toMarkdownOptions = options.toMarkdownOptions = Object(options.toMarkdownOptions);
-    toMarkdownOptions.converters = toMarkdownOptions.converters || [];
+    var toTurnDownOptions = options.toTurnDownOptions = Object(options.toTurnDownOptions);
+    toTurnDownOptions.converters = toTurnDownOptions.converters || [];
 
     if (!options.ignoreBuiltInConverters) {
-        toMarkdownOptions.converters.push({
+        toTurnDownOptions.converters.push({
             filter: function (node) {
                 return node.nodeName === "DIV" && !node.attributes.length;
             }
@@ -67,7 +67,7 @@
                 normalizeList($lists[i]);
             }
 
-            callback(toMarkdown($clone.innerHTML, options.toMarkdownOptions).split("\n").map(function (c) {
+            callback( new TurndownService(options.toTurnDownOptions).turndown($clone.innerHTML).split("\n").map(function (c) {
                 return c.replace(rightWhitespace, '');
             }).join("\n").replace(rightWhitespace, ''));
         }.bind(this);

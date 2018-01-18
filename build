@@ -10,9 +10,9 @@ var Fs = require("fs")
 // Constants
 const TEMPLATE_EMBEDED = Fs.readFileSync("./src/embeded.js", "utf-8")
     , TEMPLATE_NO_DEPS = Fs.readFileSync("./src/me-markdown.js", "utf-8")
-    , TO_MARKDOWN = Fs.readFileSync("./node_modules/to-markdown/dist/to-markdown.js", "utf-8")
+    , TO_TURNDOWN = Fs.readFileSync("./node_modules/turndown/dist/turndown.js", "utf-8")
     , MUSTACHE_DATA = {
-        toMarkdown: TO_MARKDOWN
+        toMarkdown: TO_TURNDOWN
       , MeMarkdown: MeMarkdown.toString()
       }
     ;

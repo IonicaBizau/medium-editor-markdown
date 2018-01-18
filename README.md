@@ -24,7 +24,7 @@ The available scripts are:
 
 The `*.standalone.*` scripts contain all the dependencies included there.
 
-The `*.no-deps.*` scripts contain only the extension code. You will have to include manually [`to-markdown.js`](https://github.com/domchristie/to-markdown) on the page, before including the markdown extension.
+The `*.no-deps.*` scripts contain only the extension code. You will have to include manually [`turndown.js`](https://github.com/domchristie/turndown) on the page, before including the markdown extension.
 
 The `*.min.*` scripts are minified.
 
@@ -100,7 +100,7 @@ Thanks! :heart:
 ## :cake: Thanks
 
  - [**@daviferreira**](https://github.com/daviferreira/) who created the [Medium Editor library](https://github.com/daviferreira/medium-editor).
- - [**@domchristie**](https://github.com/domchristie/) for creating [to-markdown](https://github.com/domchristie/to-markdown).
+ - [**@domchristie**](https://github.com/domchristie/) for creating [turndown](https://github.com/domchristie/turndown).
 
 
 
