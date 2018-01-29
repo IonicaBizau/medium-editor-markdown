@@ -14,11 +14,12 @@
     "Nate Mielnik <nathan@outlook.com>",
     "@prevuelta (http://www.pablorevuelta.com/)",
     "okmttdhr (http://okmttdhr.github.io/)",
-    "Anna Yafi (https://github.com/annayafi/)"
+    "Anna Yafi (https://github.com/annayafi/)",
+    "Sunil Hari (https://github.com/sunilhari/)"
   ],
   "license": "MIT",
   "dependencies": {
-    "to-markdown": "^3.0.3"
+    "turndown": "^4.0.1"
   },
   "devDependencies": {
     "barbe": "^3.0.6",
