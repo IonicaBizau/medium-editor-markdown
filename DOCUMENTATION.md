@@ -10,7 +10,7 @@ Creates a new instance of `MeMarkdown`.
 - **Object** `options`: An object containing the following fields:
  - `events` (Array): An array with the events when the markdown code will be generated (default: `["input", "change"]`).
  - `callback` (Function): The callback function. If the second argument is a function, then it has greater priority.
- - `toTurnDownOptions` (Object): Options to pass to the markdown converter code.
- - `ignorebuiltinconverters` (Boolean): If `true`, the default converters passed to `toTurnDown` will be ignored.
+ - `toTurndownOptions` (Object): Options to pass to the markdown converter code.
+ - `ignoreBuiltinConverters` (Boolean): If `true`, the default converters passed to `toMarkdown` will be ignored.
 - **Function** `callback`: The callback function that is called with the markdown code (first argument).
 
