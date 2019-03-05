@@ -949,11 +949,11 @@ return TurndownService;
     options.events = options.events || ["input", "change"];
     callback = callback || options.callback || function () {};
 
-    var toTurnDownOptions = options.toTurnDownOptions = Object(options.toTurnDownOptions);
-    toTurnDownOptions.converters = toTurnDownOptions.converters || [];
+    var toTurndownOptions = options.toTurndownOptions = Object(options.toTurndownOptions);
+    toTurndownOptions.converters = toTurndownOptions.converters || [];
 
-    if (!options.ignoreBuiltInConverters) {
-        toTurnDownOptions.converters.push({
+    if (!options.ignoreBuiltinConverters) {
+        toTurndownOptions.converters.push({
             filter: function (node) {
                 return node.nodeName === "DIV" && !node.attributes.length;
             }
@@ -1001,14 +1001,18 @@ return TurndownService;
                 normalizeList($lists[i]);
             }
 
-            callback( new TurndownService(options.toTurnDownOptions).turndown($clone.innerHTML).split("\n").map(function (c) {
+            callback( new TurndownService(options.toTurndownOptions).turndown($clone.innerHTML).split("\n").map(function (c) {
                 return c.replace(rightWhitespace, '');
             }).join("\n").replace(rightWhitespace, ''));
         }.bind(this);
 
-        options.events.forEach(function (c) {
-            this.element.addEventListener(c, handler);
-        }.bind(this));
+        if (options.subscribeToMeEditableInput) {
+            this.base.subscribe('editableInput', handler);
+        } else {
+            options.events.forEach(function (c) {
+                this.element.addEventListener(c, handler);
+            }.bind(this));
+        }
 
         handler();
     };
