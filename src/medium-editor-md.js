@@ -32,6 +32,7 @@ module.exports = function (options, callback) {
 
     var toTurndownOptions = options.toTurndownOptions = Object(options.toTurndownOptions);
     toTurndownOptions.converters = toTurndownOptions.converters || [];
+    toTurndownOptions.customRules = toTurndownOptions.customRules || [];
 
     if (!options.ignoreBuiltinConverters) {
         toTurndownOptions.converters.push({
@@ -82,7 +83,16 @@ module.exports = function (options, callback) {
                 normalizeList($lists[i]);
             }
 
-            callback( new TurndownService(options.toTurndownOptions).turndown($clone.innerHTML).split("\n").map(function (c) {
+            var turndownService = new TurndownService(options.toTurndownOptions);
+
+            toTurndownOptions.customRules.forEach(function(customRule) {
+                turndownService.addRule(customRule.key, {
+                    filter: customRule.filter,
+                    replacement: customRule.replacement
+                })
+            });
+
+            callback(turndownService.turndown($clone.innerHTML).split("\n").map(function (c) {
                 return c.replace(rightWhitespace, '');
             }).join("\n").replace(rightWhitespace, ''));
         }.bind(this);
