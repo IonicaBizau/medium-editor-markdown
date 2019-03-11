@@ -949,11 +949,12 @@ return TurndownService;
     options.events = options.events || ["input", "change"];
     callback = callback || options.callback || function () {};
 
-    var toTurnDownOptions = options.toTurnDownOptions = Object(options.toTurnDownOptions);
-    toTurnDownOptions.converters = toTurnDownOptions.converters || [];
+    var toTurndownOptions = options.toTurndownOptions = Object(options.toTurndownOptions);
+    toTurndownOptions.converters = toTurndownOptions.converters || [];
+    toTurndownOptions.customRules = toTurndownOptions.customRules || [];
 
-    if (!options.ignoreBuiltInConverters) {
-        toTurnDownOptions.converters.push({
+    if (!options.ignoreBuiltinConverters) {
+        toTurndownOptions.converters.push({
             filter: function (node) {
                 return node.nodeName === "DIV" && !node.attributes.length;
             }
@@ -1001,7 +1002,16 @@ return TurndownService;
                 normalizeList($lists[i]);
             }
 
-            callback( new TurndownService(options.toTurnDownOptions).turndown($clone.innerHTML).split("\n").map(function (c) {
+            var turndownService = new TurndownService(options.toTurndownOptions);
+
+            toTurndownOptions.customRules.forEach(function(customRule) {
+                turndownService.addRule(customRule.key, {
+                    filter: customRule.filter,
+                    replacement: customRule.replacement
+                })
+            });
+
+            callback(turndownService.turndown($clone.innerHTML).split("\n").map(function (c) {
                 return c.replace(rightWhitespace, '');
             }).join("\n").replace(rightWhitespace, ''));
         }.bind(this);
