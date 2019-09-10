@@ -955,16 +955,16 @@ return TurndownService;
 
     if (!options.ignoreBuiltinConverters) {
         toTurndownOptions.converters.push({
-            filter: function (node) {
+            filter: function filter(node) {
                 return node.nodeName === "DIV" && !node.attributes.length;
-            }
-          , replacement: function (content) {
+            },
+            replacement: function replacement(content) {
                 return content;
             }
         });
     }
 
-    function normalizeList ($elm) {
+    function normalizeList($elm) {
         var $children = $elm.children;
         for (var i = 0; i < $children.length; ++i) {
             var $cChild = $children[i];
@@ -975,7 +975,9 @@ return TurndownService;
             if (/^UL|OL$/.test($cChild.tagName)) {
                 try {
                     $prevChild.appendChild($cChild);
-                } catch (e) { console.warn(e); }
+                } catch (e) {
+                    console.warn(e);
+                }
                 normalizeList($cChild);
             }
         }
@@ -1004,11 +1006,11 @@ return TurndownService;
 
             var turndownService = new TurndownService(options.toTurndownOptions);
 
-            toTurndownOptions.customRules.forEach(function(customRule) {
+            toTurndownOptions.customRules.forEach(function (customRule) {
                 turndownService.addRule(customRule.key, {
                     filter: customRule.filter,
                     replacement: customRule.replacement
-                })
+                });
             });
 
             callback(turndownService.turndown($clone.innerHTML).split("\n").map(function (c) {
