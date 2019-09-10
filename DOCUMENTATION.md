@@ -6,7 +6,6 @@ You can see below the API reference of this module.
 Creates a new instance of `MeMarkdown`.
 
 #### Params
-
 - **Object** `options`: An object containing the following fields:
  - `events` (Array): An array with the events when the markdown code will be generated (default: `["input", "change"]`).
  - `subscribeToMeEditableInput` (Boolean): If this is true we will respond to the medium editor's custom "editableInput" event
