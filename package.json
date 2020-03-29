@@ -19,11 +19,11 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "turndown": "^4.0.1"
+    "turndown": "^6.0.0"
   },
   "devDependencies": {
     "barbe": "^3.0.6",
-    "uglify-js": "^2.5.0"
+    "uglify-js": "^3.8.1"
   },
   "repository": {
     "type": "git",

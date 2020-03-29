@@ -360,7 +360,7 @@ if (!("classList" in document.createElement("_"))) {
     } else {
         root.MediumEditor = factory;
     }
-})(undefined, function () {
+})(window, function () {
 
     'use strict';
 
