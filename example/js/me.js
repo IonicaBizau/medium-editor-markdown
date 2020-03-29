@@ -1,6 +1,12 @@
 "use strict";
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _typeof = typeof Symbol === "function" && _typeof2(Symbol.iterator) === "symbol" ? function (obj) {
+    return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+} : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+};
 
 /*global self, document, DOMException */
 
@@ -32,6 +38,7 @@ if (!("classList" in document.createElement("_"))) {
             return -1;
         }
         // Vendors: please allow content code to instantiate DOMExceptions
+
         ,
             DOMEx = function DOMEx(type, message) {
             this.name = type;
@@ -3787,6 +3794,7 @@ if (!("classList" in document.createElement("_"))) {
                 // Matches relative hash link, begins with "#"
                 var urlSchemeRegex = /^([a-z]+:)?\/\/|^(mailto|tel|maps):|^\#/i,
 
+
                 // var te is a regex for checking if the string is a telephone number
                 telRegex = /^\+?\s?\(?(?:\d\s?\-?\)?){3,20}$/;
                 if (telRegex.test(value)) {
@@ -5961,10 +5969,12 @@ if (!("classList" in document.createElement("_"))) {
             // Checks for existance of multiple block elements in the current selection
             multipleBlockElementsSelected: function multipleBlockElementsSelected() {
                 var regexEmptyHTMLTags = /<[^\/>][^>]*><\/[^>]+>/gim,
-                    // http://stackoverflow.com/questions/3129738/remove-empty-tags-using-regex
+
+                // http://stackoverflow.com/questions/3129738/remove-empty-tags-using-regex
                 regexBlockElements = new RegExp('<(' + MediumEditor.util.blockContainerElementNames.join('|') + ')[^>]*>', 'g'),
                     selectionHTML = MediumEditor.selection.getSelectionHtml(this.document).replace(regexEmptyHTMLTags, ''),
-                    // Filter out empty blocks from selection
+
+                // Filter out empty blocks from selection
                 hasMultiParagraphs = selectionHTML.match(regexBlockElements); // Find how many block elements are within the html
 
                 return !!hasMultiParagraphs && hasMultiParagraphs.length > 1;
@@ -6896,7 +6906,8 @@ if (!("classList" in document.createElement("_"))) {
             /*jslint regexp: true*/
             var appendAction = /^append-(.+)$/gi,
                 justifyAction = /justify([A-Za-z]*)$/g,
-                /* Detecting if is justifyCenter|Right|Left */
+
+            /* Detecting if is justifyCenter|Right|Left */
             match,
                 cmdValueArgument;
             /*jslint regexp: false*/
